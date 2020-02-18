@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:aspectj-autoproxy/>
+
+    <!-- Page Objects -->
+    <bean id="PageObject" class="pageobjects.PageObject" abstract="true"/>
+    <bean id="LoginPO" class="pageobjects.LoginPO"/>
+    <bean id="PreIntakePO" class="pageobjects.PreIntakePO"/>
+    <bean id="TopNavigationBarPO" class="pageobjects.TopNavigationBarPO"/>
+
+    <!-- processstep -->
+    <bean id="ClaimDetailsPO" class="pageobjects.processstep.claimdetails.ClaimDetailsPO"/>
+    <bean id="ProcessStepKRPO" class="pageobjects.processstep.processstep.ProcessStepKRPO"/>
+    <bean id="ProcessStepJPPO" class="pageobjects.processstep.processstep.ProcessStepJPPO"/>
+    <bean id="ProcessStepSGPO" class="pageobjects.processstep.processstep.ProcessStepSGPO"/>
+    <bean id="ProcessStepPO" class="pageobjects.processstep.processstep.ProcessStepPO"/>
+    <bean id="ProcessStepIDPO" class="pageobjects.processstep.processstep.ProcessStepIDPO"/>
+    <bean id="ClaimDetailsJPPO" class="pageobjects.processstep.claimdetails.ClaimDetailsJPPO"/>
+    <bean id="ClaimDetailsKRPO" class="pageobjects.processstep.claimdetails.ClaimDetailsKRPO"/>
+    <bean id="ClaimDetailsSGPO" class="pageobjects.processstep.claimdetails.ClaimDetailsSGPO"/>
+    <bean id="AttachmentsRepairerPO" class="pageobjects.processstep.AttachmentsRepairerPO"/>
+    <bean id="DamageCapturingPO" class="pageobjects.processstep.DamageCapturingPO"/>
+    <bean id="IBOSSearchPO" class="pageobjects.processstep.IBOSSearchPO"/>
+    <bean id="LaborRatesPO" class="pageobjects.processstep.LaborRatesPO"/>
+    <bean id="ModifySparePartsPO" class="pageobjects.processstep.ModifySparePartsPO"/>
+    <bean id="ReportsPO" class="pageobjects.processstep.ReportsPO"/>
+    <bean id="ComparePO" class="pageobjects.processstep.ComparePO"/>
+    <bean id="CaseHistoryPO" class="pageobjects.processstep.CaseHistoryPO"/>
+    <bean id="VehicleAdminPO" class="pageobjects.processstep.VehicleAdminPO"/>
+    <bean id="VehicleIdentificationPO" class="pageobjects.processstep.VehicleIdentificationPO"/>
+    <bean id="ToolBarPO" class="pageobjects.processstep.ToolBarPO"/>
+    <bean id="DamageDetailsPO" class="pageobjects.processstep.DamageDetailsPO"/>
+
+    <!-- standalone -->
+    <bean id="DashboardPO" class="pageobjects.standalone.DashboardPO"/>
+
+    <!-- worklistgrid -->
+    <bean id="WorkListGridPO" class="pageobjects.worklistgrid.WorkListGridPO"/>
+    <bean id="WorkListGridClosedPO" class="pageobjects.worklistgrid.WorkListGridClosedPO"/>
+    <bean id="WorkListGridInboxPO" class="pageobjects.worklistgrid.WorkListGridInboxPO"/>
+    <bean id="WorkListGridOpenPO" class="pageobjects.worklistgrid.WorkListGridOpenPO"/>
+
+    <!-- Aspect related bean instantiation -->
+    <bean id="LoggingAspect" class="utils.log.LoggingAspect"/>
+</beans>

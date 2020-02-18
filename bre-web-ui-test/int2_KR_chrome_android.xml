@@ -1,0 +1,114 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="KR" verbose="1" parallel="tests" thread-count="1">
+    <listeners>
+        <listener class-name="utils.listeners.AnnotationTransformer"/>
+        <listener class-name="utils.listeners.ExtentTestListener"/>
+        <listener class-name="utils.listeners.TestrailListener"/>
+        <listener class-name="utils.listeners.SlackListener" />
+    </listeners>
+    <test name="KR_RAT" parallel="classes" thread-count="1">
+        <parameter name="device" value="Android"/>
+        <parameter name="env" value="INT2"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="locale" value="ko-kr"/>
+        <parameter name="type" value="RAT"/>
+        <parameter name="country" value="KR"/>
+        <parameter name="dataFile" value="data.int2.KR.properties"/>
+        <parameter name="jiraIssueList" value="jira.issue.KR.properties"/>
+        <parameter name="vehicleElement" value="vehicleElement.KR.properties"/>
+        <classes>
+            <class name="cases.KR.DashboardTest" >
+                <methods>
+                    <include name="loginAndLogout" />
+                    <include name="createNewCaseFromDashboard" />
+                </methods>
+            </class>
+            <class name="cases.KR.ClaimDetailsTest">
+                <methods>
+                    <include name="searchVehicleByVin" />
+                    <include name="searchVehicleBySearchTree" />
+                    <include name="queryCaseByIBOS" />
+                </methods>
+            </class>
+            <class name="cases.KR.LabourRatesTest">
+                <methods>
+                    <include name="selectExistingContracts" />
+                    <include name="modifyLabourRateDetails" />
+                    <include name="modifyPaintRateDetails"/>
+                    <include name="addOneOrMoreIDBCAtOneTime"/>
+                    <include name="deleteOneOrMoreIDBCAtOneTime"/>
+                    <include name="applyIDBCValueWithFixedAmount"/>
+                    <include name="modifyIdbcDefaultValue"/>
+                </methods>
+            </class>
+            <class name="cases.KR.AttachmentTest">
+                <methods>
+                    <include name="uploadJPGFileFromAndroid" />
+                    <include name="uploadJPEGFileFromAndroid" />
+                </methods>
+            </class>
+            <class name="cases.KR.DamageCapturingTest">
+                <methods>
+                    <include name="damageCapturingInQapter" />
+                </methods>
+            </class>
+            <class name="cases.KR.ModifySparePartsTest">
+                <methods>
+                    <include name="manuallyAddParts" />
+                    <include name="deleteAddedParts"/>
+                    <include name="repairPartsFromQapterDisplayInModifyPart"/>
+                    <include name="modifyThePriceLessThanOriginalPrice"/>
+                </methods>
+            </class>
+            <class name="cases.KR.ReportsTest">
+                <methods>
+                    <include name="calculationOutput"/>
+                </methods>
+            </class>
+            <class name="cases.KR.CompareTest">
+                <methods>
+                    <include name="compareDifferentCalculation"/>
+                </methods>
+            </class>
+            <class name="cases.KR.CaseHistoryTest">
+                <methods>
+                    <include name="caseHistory"/>
+                    <include name="addPublicComment"/>
+                    <include name="addPrivateComment"/>
+                </methods>
+            </class>
+            <class name="cases.KR.ToolBarTest">
+                <methods>
+                    <include name="closeTheTask"/>
+                    <include name="copyTheClaimIncludeAllCalculations"/>
+                    <include name="sendCaseWithLatestCalculationAllAttachmentsFromToolbar"/>
+                    <include name="sendCaseWithSelectedCalculationsSelectedAttachmentsFromToolbarOnAndroid"/>
+                    <include name="changeOwner"/>
+                    <include name="mergeTaskForInboxClaim"/>
+                    <include name="reopenTaskForClosedClaimFromToolBar"/>
+                    <include name="insurerApproveTheClaim"/>
+                    <include name="insurerRejectTheClaim"/>
+                </methods>
+            </class>
+            <class name="cases.KR.WorkListCloseBoxTest">
+                <methods>
+                    <include name="reopenTaskForClosedClaim"/>
+                </methods>
+            </class>
+            <class name="cases.KR.WorkListOpenBoxTest">
+                <methods>
+                    <include name="closeTheTaskInOpenBox"/>
+                    <include name="changeOwnerInOpenBox"/>
+                    <include name="sendCaseWithLatestCalculationAllAttachments"/>
+                    <include name="createNewCaseFromHeader"/>
+                    <include name="sendCaseWithSelectedCalculationsSelectedAttachmentsFromAndroid"/>
+                </methods>
+            </class>
+            <class name="cases.KR.WorkListInboxTest">
+                <methods>
+                    <include name="mergeREQReceivedCase"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

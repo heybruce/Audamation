@@ -1,0 +1,215 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="KR" verbose="1" parallel="tests" thread-count="1">
+    <listeners>
+        <listener class-name="utils.listeners.AnnotationTransformer"/>
+        <listener class-name="utils.listeners.ExtentTestListener"/>
+        <listener class-name="utils.listeners.TestrailListener"/>
+        <listener class-name="utils.listeners.SlackListener" />
+        <listener class-name="utils.listeners.VideoRecordingDockerListener"/>
+    </listeners>
+    <test name="KR_RAT" parallel="classes" thread-count="5">
+        <parameter name="device" value="pc"/>
+        <parameter name="os" value="windows"/>
+        <parameter name="env" value="INT2"/>
+        <parameter name="browser" value="firefox"/>
+        <parameter name="locale" value="ko-kr"/>
+        <parameter name="type" value="RAT"/>
+        <parameter name="country" value="KR"/>
+        <parameter name="dataFile" value="data.int2.KR.properties"/>
+        <parameter name="jiraIssueList" value="jira.issue.KR.properties"/>
+        <parameter name="vehicleElement" value="vehicleElement.KR.properties"/>
+        <classes>
+            <class name="cases.KR.DashboardTest" >
+                <methods>
+                    <include name="loginAndLogout" />
+                    <include name="createNewCaseFromDashboard" />
+                </methods>
+            </class>
+            <class name="cases.KR.ClaimDetailsTest">
+                <methods>
+                    <include name="searchVehicleByVin" />
+                    <include name="searchVehicleBySearchTree" />
+                    <include name="queryCaseByIBOS" />
+                </methods>
+            </class>
+            <class name="cases.KR.LabourRatesTest">
+                <methods>
+                    <include name="selectExistingContracts" />
+                    <include name="modifyLabourRateDetails" />
+                    <include name="modifyPaintRateDetails"/>
+                    <include name="addOneOrMoreIDBCAtOneTime"/>
+                    <include name="deleteOneOrMoreIDBCAtOneTime"/>
+                    <include name="applyIDBCValueWithFixedAmount"/>
+                    <include name="modifyIdbcDefaultValue"/>
+                </methods>
+            </class>
+            <class name="cases.KR.AttachmentTest">
+                <methods>
+                    <include name="uploadJPGFile" />
+                    <include name="uploadJPEGFile" />
+                </methods>
+            </class>
+            <class name="cases.KR.DamageCapturingTest">
+                <methods>
+                    <include name="damageCapturingInQapter" />
+                </methods>
+            </class>
+            <class name="cases.KR.ModifySparePartsTest">
+                <methods>
+                    <include name="manuallyAddParts" />
+                    <include name="deleteAddedParts"/>
+                    <include name="repairPartsFromQapterDisplayInModifyPart"/>
+                    <include name="modifyThePriceLessThanOriginalPrice"/>
+                    <include name="addPartsByUploadingCSV"/>
+                    <include name="downloadPartsUploaderTemplate"/>
+                </methods>
+            </class>
+            <class name="cases.KR.ReportsTest">
+                <methods>
+                    <include name="calculationOutput" />
+                    <include name="printPdfInCalculationList"/>
+                </methods>
+            </class>
+            <class name="cases.KR.CompareTest">
+                <methods>
+                    <include name="compareDifferentCalculation"/>
+                </methods>
+            </class>
+            <class name="cases.KR.CaseHistoryTest">
+                <methods>
+                    <include name="caseHistory"/>
+                    <include name="addPublicComment"/>
+                    <include name="addPrivateComment"/>
+                </methods>
+            </class>
+            <class name="cases.KR.ToolBarTest">
+                <methods>
+                    <include name="printPdfTemplate1"/>
+                    <include name="printPdfTemplate2"/>
+                    <include name="printPdfTemplate3"/>
+                    <include name="closeTheTask"/>
+                    <include name="copyTheClaimIncludeAllCalculations"/>
+                    <include name="sendCaseWithLatestCalculationAllAttachmentsFromToolbar"/>
+                    <include name="sendCaseWithSelectedCalculationsAndAttachmentsFromToolbar"/>
+                    <include name="changeOwner"/>
+                    <include name="mergeTaskForInboxClaim"/>
+                    <include name="reopenTaskForClosedClaimFromToolBar"/>
+                    <include name="insurerApproveTheClaim"/>
+                    <include name="insurerRejectTheClaim"/>
+                </methods>
+            </class>
+            <class name="cases.KR.WorkListCloseBoxTest">
+                <methods>
+                    <include name="reopenTaskForClosedClaim"/>
+                </methods>
+            </class>
+            <class name="cases.KR.WorkListOpenBoxTest">
+                <methods>
+                    <include name="closeTheTaskInOpenBox"/>
+                    <include name="changeOwnerInOpenBox"/>
+                    <include name="sendCaseWithLatestCalculationAllAttachments"/>
+                    <include name="createNewCaseFromHeader"/>
+                    <include name="sendCaseWithSelectedCalculationsSelectedAttachments"/>
+                </methods>
+            </class>
+            <class name="cases.KR.WorkListInboxTest">
+                <methods>
+                    <include name="mergeREQReceivedCase"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="KR_Regression" parallel="classes" thread-count="5">
+        <parameter name="device" value="pc"/>
+        <parameter name="os" value="windows"/>
+        <parameter name="env" value="INT2"/>
+        <parameter name="browser" value="firefox"/>
+        <parameter name="locale" value="ko-kr"/>
+        <parameter name="type" value="Regression"/>
+        <parameter name="country" value="KR"/>
+        <parameter name="dataFile" value="data.int2.KR.properties"/>
+        <parameter name="jiraIssueList" value="jira.issue.KR.properties"/>
+        <parameter name="vehicleElement" value="vehicleElement.KR.properties"/>
+        <classes>
+            <class name="cases.KR.DashboardTest" >
+                <methods>
+                    <include name="openWorkListFromDashboard"/>
+                </methods>
+            </class>
+            <class name="cases.KR.AttachmentTest">
+                <methods>
+                    <include name="uploadPDFFile"/>
+                    <include name="uploadWordDocFile"/>
+                    <include name="uploadWordDocxFile"/>
+                    <include name="uploadExcelXlsFile"/>
+                    <include name="uploadExcelXlsxFile"/>
+                    <include name="uploadTextTxtFile"/>
+                    <include name="renameAttachment"/>
+                    <include name="copyAttachment"/>
+                    <include name="deleteAttachment"/>
+                    <!--<include name="compareDownloadedAttachments" />-->
+                    <!--<include name="compareDownloadedImages"/>-->
+                </methods>
+            </class>
+            <class name="cases.KR.LabourRatesTest">
+                <methods>
+                    <include name="triggerIdbc51ByAztPaintMethod"/>
+                </methods>
+            </class>
+            <class name="cases.KR.LabourRatesTest">
+                <methods>
+                    <include name="triggerIdbc51ByAztPaintMethod"/>
+                </methods>
+            </class>
+            <class name="cases.KR.ReportsTest">
+                <methods>
+                    <include name="printPdfTemplate1ByPrintPdfButton"/>
+                    <include name="printPdfTemplate2ByPrintPdfButton"/>
+                    <include name="printPdfTemplate3ByPrintPdfButton"/>
+                    <include name="modifiedLaborRateUpdatedInEditedOutput"/>
+                </methods>
+            </class>
+            <class name="cases.KR.ToolBarTest">
+                <methods>
+                    <include name="sendCaseWithAllCalculationsFromToolbar"/>
+                    <include name="copyTheClaimIncludeLastCalculations"/>
+                </methods>
+            </class>
+            <class name="cases.KR.WorkListOpenBoxTest">
+                <methods>
+                    <include name="sendCaseWithAllCalculations"/>
+                    <include name="insurerSendApprovedClaimToRepairer"/>
+                    <include name="insurerSendRejectedClaimToRepairer"/>
+                    <include name="changeDisplayedColumnsOfWorkListOpenBox"/>
+                    <include name="searchCaseByClaimNumberInOpenBox"/>
+                </methods>
+            </class>
+            <class name="cases.KR.ModifySparePartsTest">
+                <methods>
+                    <include name="modifyThePriceHigherThanOriginalPrice"/>
+                    <include name="modifyPartTypeToOemParts"/>
+                    <include name="sendCaseWithModifySparePartsCalculation"/>
+                </methods>
+            </class>
+            <class name="cases.KR.CaseHistoryTest">
+                <methods>
+                    <include name="businessStatusOfCaseData"/>
+                </methods>
+            </class>
+            <class name="cases.KR.WorkListInboxTest">
+                <methods>
+                    <include name="repairerMergeApprovedClaim"/>
+                    <include name="repairerMergeRejectedClaim"/>
+                    <include name="changeDisplayedColumnsOfWorkListInbox"/>
+                    <include name="searchCaseByClaimNumberInInbox"/>
+                </methods>
+            </class>
+            <class name="cases.KR.WorkListCloseBoxTest">
+                <methods>
+                    <include name="changeDisplayedColumnsOfWorkListCloseBox"/>
+                    <include name="searchCaseByClaimNumberInCloseBox"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

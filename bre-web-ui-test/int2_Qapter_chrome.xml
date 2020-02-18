@@ -1,0 +1,374 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Qapter" verbose="1" parallel="tests" thread-count="1">
+    <listeners>
+        <listener class-name="utils.listeners.AnnotationTransformer"/>
+        <listener class-name="utils.listeners.ExtentTestListener"/>
+        <listener class-name="utils.listeners.TestrailListener"/>
+        <listener class-name="utils.listeners.SlackListener" />
+        <listener class-name="utils.listeners.VideoRecordingDockerListener"/>
+    </listeners>
+    <test name="KR" parallel="classes" thread-count="5">
+        <parameter name="device" value="pc"/>
+        <parameter name="os" value="windows"/>
+        <parameter name="env" value="INT2"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="type" value="RAT"/>
+        <parameter name="locale" value="ko-kr"/>
+        <parameter name="country" value="KR"/>
+        <parameter name="dataFile" value="data.int2.KR.properties"/>
+        <parameter name="jiraIssueList" value="jira.issue.KR.properties"/>
+        <parameter name="vehicleElement" value="vehicleElement.KR.properties"/>
+        <classes>
+            <class name="cases.KR.Qapter.ZoneAndLayoutTest">
+                <methods>
+                    <include name="fastCapturing"/>
+                    <include name="multipartSelection"/>
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.SearchTest">
+                <methods>
+                    <include name="searchGuideNo"/>
+                    <include name="searchDescription"/>
+                    <include name="searchOemCode"/>
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.ModelOptionsTest">
+                <methods>
+                    <include name="modelOptionPopUp"/>
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.ChecklistTest">
+                <methods>
+                    <include name="modelOptionTabInChecklist"/>
+                    <include name="consistentAfterQapterResumed"/>
+                    <include name="addPositionInChecklist"/>
+                    <include name="editPositionInChecklist"/>
+                    <include name="deletePositionInChecklist"/>
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.PositionsTest">
+                <methods>
+                    <include name="displayPNSP"/>
+                    <include name="editPNSP" />
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.RepairPanelTest">
+                <methods>
+                    <include name="openRepairPanel"/>
+                    <include name="closeRepairPanel"/>
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.CalculationPreviewTest">
+                <methods>
+                    <include name="totalLossAndCalculationPreview"/>
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.RunningTotalTest">
+                <methods>
+                    <include name="displayRunningTotal"/>
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.PlasticDamageRepairTest">
+                <methods>
+                    <!--<include name="manufacturerAnd10WURepairWithType1"/>-->
+                    <include name="manufacturerAnd12WURepairWithType1"/>
+                    <include name="manufacturerAnd100TURepairWithType1"/>
+                    <!--<include name="manufacturerAnd1HRRepairWithType1"/>-->
+                    <include name="aztAnd10WURepairWithType1"/>
+                    <include name="aztAnd12WURepairWithType1"/>
+                    <include name="aztAnd100TURepairWithType1"/>
+                    <include name="aztAnd1HRRepairWithType1"/>
+                    <include name="repairWithType2"/>
+                    <include name="manufacturerAnd12WURepairWithS3AndDT1"/>
+                    <include name="aztAnd100TURepairWithS3AndDT3"/>
+                    <include name="errorHandlingForNotSetLaborRate"/>
+                    <include name="removeKoreanRepairFormulaPart"/>
+                    <include name="manufacturer10wuPrice50wUpRepairWithS3AndDT1"/>
+                    <include name="manufacturer10wuPrice50wRepairWithS3AndDT1"/>
+                    <include name="manufacturer10wuPrice35w50wRepairWithS3AndDT1"/>
+                    <include name="manufacturer10wuPrice35wRepairWithS3AndDT1"/>
+                    <include name="manufacturer10wuPrice20w35wRepairWithS3AndDT1"/>
+                    <include name="manufacturer10wuPrice20wRepairWithS3AndDT1"/>
+                    <include name="manufacturer10wuPrice20wLessRepairWithS3AndDT1"/>
+                    <include name="manufacturer10wuPrice50wUpRepairWithS3AndDT2"/>
+                    <include name="manufacturer10wuPrice50wRepairWithS3AndDT2"/>
+                    <include name="manufacturer10wuPrice35w50wRepairWithS3AndDT2"/>
+                    <include name="manufacturer10wuPrice35wRepairWithS3AndDT2"/>
+                    <include name="manufacturer10wuPrice20w35wRepairWithS3AndDT2"/>
+                    <include name="manufacturer10wuPrice20wRepairWithS3AndDT2"/>
+                    <include name="manufacturer10wuPrice20wLessRepairWithS3AndDT2"/>
+                    <include name="manufacturer10wuPrice50wUpRepairWithS3AndDT3"/>
+                    <include name="manufacturer10wuPrice50wRepairWithS3AndDT3"/>
+                    <include name="manufacturer10wuPrice35w50wRepairWithS3AndDT3"/>
+                    <include name="manufacturer10wuPrice35wRepairWithS3AndDT3"/>
+                    <include name="manufacturer10wuPrice20w35wRepairWithS3AndDT3"/>
+                    <include name="manufacturer10wuPrice20wRepairWithS3AndDT3"/>
+                    <include name="manufacturer10wuPrice20wLessRepairWithS3AndDT3"/>
+                    <include name="manufacturer10wuPrice50wUpRepairWithS3AndDT4"/>
+                    <include name="manufacturer10wuPrice50wRepairWithS3AndDT4"/>
+                    <include name="manufacturer10wuPrice35w50wRepairWithS3AndDT4"/>
+                    <include name="manufacturer10wuPrice35wRepairWithS3AndDT4"/>
+                    <include name="manufacturer10wuPrice20w35wRepairWithS3AndDT4"/>
+                    <include name="manufacturer10wuPrice20wRepairWithS3AndDT4"/>
+                    <include name="manufacturer10wuPrice20wLessRepairWithS3AndDT4"/>
+                    <include name="repairingInfoForSeverityType3"/>
+                    <include name="multiPartsRepairingInfoForSeverityType3"/>
+                    <include name="addPartsWithKoreanRepairFormula"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="KR_Qapter_Regression" parallel="classes" thread-count="5">
+        <parameter name="device" value="pc"/>
+        <parameter name="os" value="windows"/>
+        <parameter name="env" value="INT2"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="type" value="Regression"/>
+        <parameter name="locale" value="ko-kr"/>
+        <parameter name="country" value="KR"/>
+        <parameter name="dataFile" value="data.int2.KR.properties"/>
+        <parameter name="jiraIssueList" value="jira.issue.KR.properties"/>
+        <parameter name="vehicleElement" value="vehicleElement.KR.properties"/>
+        <classes>
+            <class name="cases.KR.Qapter.ZoneAndLayoutTest">
+                <methods>
+                    <include name="navigateZonesWithArrows"/>
+                    <include name="navigationTreeInteraction"/>
+                    <include name="multipartSelectSecondPart"/>
+                    <include name="multipartSelectMultiRepairMethod"/>
+                    <include name="fastCapturingNoSideAndMultipart"/>
+                    <include name="unselectFastCapturingNoSideAndMultipart"/>
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.ModelOptionsTest">
+                <methods>
+                    <include name="cancelModelOptionSelection"/>
+                    <include name="customModelOptions"/>
+                    <include name="confirmModelOptionRemoveConflictDialog"/>
+                    <include name="editModelOption"/>
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.ChecklistTest">
+                <methods>
+                    <include name="addedModelOptionDisplaysInChecklist"/>
+                    <include name="modelOptionConsistencies"/>
+                    <include name="checkMoreInfoInChecklist"/>
+                    <include name="filterChecklist"/>
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.PhotosTest">
+                <methods>
+                    <include name="uploadStoredPhotosFromDevice"/>
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.RepairPanelTest">
+                <methods>
+                    <include name="verifyPartCompositionData"/>
+                </methods>
+            </class>
+            <class name="cases.KR.Qapter.CalculationPreviewTest">
+                <methods>
+                    <include name="displayPrinterButtonInCalculationPreview"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="JP" parallel="classes" thread-count="5">
+        <parameter name="env" value="INT2"/>
+        <parameter name="os" value="windows"/>
+        <parameter name="device" value="pc"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="type" value="RAT"/>
+        <parameter name="locale" value="en-us"/>
+        <parameter name="country" value="JP"/>
+        <parameter name="dataFile" value="data.int2.JP.properties"/>
+        <parameter name="jiraIssueList" value="jira.issue.JP.properties"/>
+        <parameter name="vehicleElement" value="vehicleElement.JP.properties"/>
+        <classes>
+            <class name="cases.JP.Qapter.ZoneAndLayoutTest">
+                <methods>
+                    <include name="fastCapturing"/>
+                    <include name="multipartSelection"/>
+                    <include name="pictogramViews"/>
+                    <include name="pictogramViewsInZone"/>
+                    <include name="openPictogramSheet"/>
+                    <include name="openZoneByPictogram"/>
+                    <include name="addPartByPictogram"/>
+                </methods>
+            </class>
+            <class name="cases.JP.Qapter.SearchTest">
+                <methods>
+                    <include name="searchGuideNo"/>
+                    <include name="searchDescription"/>
+                    <include name="searchOemCode"/>
+                </methods>
+            </class>
+            <class name="cases.JP.Qapter.ModelOptionsTest">
+                <methods>
+                    <include name="modelOptionPopUp"/>
+                </methods>
+            </class>
+            <class name="cases.JP.Qapter.ChecklistTest">
+                <methods>
+                    <include name="modelOptionTabInChecklist"/>
+                    <include name="consistentAfterQapterResumed"/>
+                    <include name="addPositionInChecklist"/>
+                    <include name="editPositionInChecklist"/>
+                    <include name="deletePositionInChecklist"/>
+                </methods>
+            </class>
+            <class name="cases.JP.Qapter.PositionsTest">
+                <methods>
+                    <include name="displayPNSP"/>
+                    <include name="editPNSP" />
+                </methods>
+            </class>
+            <class name="cases.JP.Qapter.RunningTotalTest">
+                <methods>
+                    <include name="displayRunningTotal" />
+                </methods>
+            </class>
+            <class name="cases.JP.Qapter.RepairPanelTest">
+                <methods>
+                    <include name="openRepairPanel"/>
+                    <include name="closeRepairPanel"/>
+                </methods>
+            </class>
+            <class name="cases.JP.Qapter.CalculationPreviewTest">
+                <methods>
+                    <include name="totalLossAndCalculationPreview"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="SG" parallel="classes" thread-count="5">
+        <parameter name="device" value="pc"/>
+        <parameter name="os" value="windows"/>
+        <parameter name="env" value="INT2"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="type" value="RAT"/>
+        <parameter name="locale" value="en-us"/>
+        <parameter name="country" value="SG"/>
+        <parameter name="dataFile" value="data.int2.SG.properties"/>
+        <parameter name="jiraIssueList" value="jira.issue.SG.properties"/>
+        <parameter name="vehicleElement" value="vehicleElement.SG.properties"/>
+        <classes>
+            <class name="cases.SG.Qapter.ZoneAndLayoutTest">
+                <methods>
+                    <include name="fastCapturing"/>
+                    <include name="multipartSelection"/>
+                    <include name="pictogramViews"/>
+                    <include name="pictogramViewsInZone"/>
+                    <include name="openPictogramSheet"/>
+                    <include name="openZoneByPictogram"/>
+                    <include name="addPartByPictogram"/>
+                </methods>
+            </class>
+            <class name="cases.SG.Qapter.SearchTest">
+                <methods>
+                    <include name="searchGuideNo"/>
+                    <include name="searchDescription"/>
+                    <include name="searchOemCode"/>
+                </methods>
+            </class>
+            <class name="cases.SG.Qapter.ModelOptionsTest">
+                <methods>
+                    <include name="modelOptionPopUp"/>
+                </methods>
+            </class>
+            <class name="cases.SG.Qapter.ChecklistTest">
+                <methods>
+                    <include name="modelOptionTabInChecklist"/>
+                    <include name="consistentAfterQapterResumed"/>
+                    <include name="addPositionInChecklist"/>
+                    <include name="editPositionInChecklist"/>
+                    <include name="deletePositionInChecklist"/>
+                </methods>
+            </class>
+            <class name="cases.SG.Qapter.PositionTest">
+                <methods>
+                    <include name="displayPNSP"/>
+                    <include name="editPNSP"/>
+                </methods>
+            </class>
+            <class name="cases.SG.Qapter.RepairPanelTest">
+                <methods>
+                    <include name="openRepairPanel"/>
+                    <include name="closeRepairPanel"/>
+                </methods>
+            </class>
+            <class name="cases.SG.Qapter.CalculationPreviewTest">
+                <methods>
+                    <include name="totalLossAndCalculationPreview"/>
+                </methods>
+            </class>
+            <class name="cases.SG.Qapter.RunningTotalTest">
+                <methods>
+                    <include name="displayRunningTotal"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="ID" parallel="classes" thread-count="5">
+        <parameter name="device" value="pc"/>
+        <parameter name="os" value="windows"/>
+        <parameter name="env" value="INT2"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="type" value="RAT"/>
+        <parameter name="locale" value="en-us"/>
+        <parameter name="country" value="ID"/>
+        <parameter name="dataFile" value="data.int2.ID.properties"/>
+        <parameter name="jiraIssueList" value="jira.issue.ID.properties"/>
+        <parameter name="vehicleElement" value="vehicleElement.ID.properties"/>
+        <classes>
+            <class name="cases.ID.Qapter.ZoneAndLayoutTest">
+                <methods>
+                    <include name="fastCapturing"/>
+                    <include name="multipartSelection"/>
+                    <include name="pictogramViews"/>
+                    <include name="pictogramViewsInZone"/>
+                    <include name="openPictogramSheet"/>
+                    <include name="openZoneByPictogram"/>
+                    <include name="addPartByPictogram"/>
+                </methods>
+            </class>
+            <class name="cases.ID.Qapter.SearchTest">
+                <methods>
+                    <include name="searchGuideNo"/>
+                    <include name="searchDescription"/>
+                    <include name="searchOemCode"/>
+                </methods>
+            </class>
+            <class name="cases.ID.Qapter.ModelOptionsTest">
+                <methods>
+                    <include name="modelOptionPopUp"/>
+                </methods>
+            </class>
+            <class name="cases.ID.Qapter.ChecklistTest">
+                <methods>
+                    <include name="modelOptionTabInChecklist"/>
+                    <include name="consistentAfterQapterResumed"/>
+                    <include name="addPositionInChecklist"/>
+                    <include name="editPositionInChecklist"/>
+                    <include name="deletePositionInChecklist"/>
+                </methods>
+            </class>
+            <class name="cases.ID.Qapter.PositionTest">
+                <methods>
+                    <include name="displayPNSP"/>
+                    <include name="editPNSP"/>
+                </methods>
+            </class>
+            <class name="cases.ID.Qapter.CalculationPreviewTest">
+                <methods>
+                    <include name="totalLossAndCalculationPreview"/>
+                </methods>
+            </class>
+            <class name="cases.ID.Qapter.RunningTotalTest">
+                <methods>
+                    <include name="displayRunningTotal"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

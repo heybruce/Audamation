@@ -1,0 +1,127 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="ID" verbose="1" parallel="tests" thread-count="1">
+    <listeners>
+        <listener class-name="utils.listeners.AnnotationTransformer"/>
+        <listener class-name="utils.listeners.ExtentTestListener"/>
+        <listener class-name="utils.listeners.TestrailListener"/>
+        <listener class-name="utils.listeners.SlackListener" />
+        <!--<listener class-name="utils.listeners.VideoRecordingListener"/>-->
+    </listeners>
+    <test name="ID_RAT" parallel="classes" thread-count="1">
+        <parameter name="device" value="Android"/>
+        <parameter name="env" value="INT2"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="locale" value="en-us"/>
+        <parameter name="type" value="RAT"/>
+        <parameter name="country" value="ID"/>
+        <parameter name="dataFile" value="data.int2.ID.properties"/>
+        <parameter name="jiraIssueList" value="jira.issue.ID.properties"/>
+        <parameter name="vehicleElement" value="vehicleElement.ID.properties"/>
+        <classes>
+            <class name="cases.ID.GeneralDetailsIDTest">
+                <methods>
+                    <include name="searchVehicleByVin"/>
+                    <include name="searchVehicleBySearchTree"/>
+                </methods>
+            </class>
+            <class name="cases.ID.DamageDetailsIDTest">
+                <methods>
+                    <include name="addDamageAreas"/>
+                </methods>
+            </class>
+            <class name="cases.ID.AttachmentsIDTest">
+                <methods>
+                    <include name="uploadJPGFileFromAndroid"/>
+                    <include name="uploadJPEGFileFromAndroid"/>
+                </methods>
+            </class>
+            <class name="cases.ID.LaborRateIDTest">
+                <methods>
+                    <include name="selectExistingContracts"/>
+                    <include name="modifyLabourRateDetails"/>
+                    <include name="modifyPaintRateDetails"/>
+                    <include name="addOneOrMoreIDBCAtOneTime"/>
+                    <include name="deleteOneOrMoreIDBCAtOneTime"/>
+                    <include name="applyIDBCValueWithFixedAmount"/>
+                    <include name="verifyMandatoryLaborRatesFields"/>
+                </methods>
+            </class>
+            <class name="cases.ID.DamageCapturingIDTest">
+                <methods>
+                    <include name="damageCapturingInQapter"/>
+                </methods>
+            </class>
+            <!--<class name="cases.ID.ModifySparePartsIDTest">-->
+                <!--<methods>-->
+                    <!--<include name="repairPartsFromQapterDisplayInModifyPart"/>-->
+                    <!--<include name="modifyThePriceLessThanOriginalPrice"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+            <class name="cases.ID.ReportsIDTest">
+                <methods>
+                    <include name="calculationOutput"/>
+                </methods>
+            </class>
+            <class name="cases.ID.CaseHistoryIDTest">
+                <methods>
+                    <include name="caseHistory"/>
+                    <include name="addComment"/>
+                    <include name="addPrivateComment"/>
+                </methods>
+            </class>
+            <class name="cases.ID.WorkListInboxIDTest">
+                <methods>
+                    <include name="insurerMergeSubmittedClaimFromWorkList"/>
+                </methods>
+            </class>
+            <class name="cases.ID.WorkListOpenBoxIDTest">
+                <methods>
+                    <include name="createNewCaseFromHeader"/>
+                    <include name="changeOwnerInOpenBox"/>
+                    <include name="closeTheTaskInOpenBox"/>
+                    <include name="loginAndLogout"/>
+                    <include name="sendCaseWithLatestCalculationAllAttachments"/>
+                    <include name="sendCaseWithSelectedCalculationsSelectedAttachmentsFromAndroid"/>
+                </methods>
+            </class>
+            <class name="cases.ID.WorkListClosedBoxIDTest">
+                <methods>
+                    <include name="reopenTaskForClosedClaim"/>
+                </methods>
+            </class>
+            <class name="cases.ID.ToolBarIDTest">
+                <methods>
+                    <include name="sendCaseWithLatestCalculationAllAttachmentsFromToolbar"/>
+                    <include name="sendCaseWithSelectedCalculationsSelectedAttachmentsFromToolbarOnAndroid"/>
+                    <include name="closeTheTask"/>
+                    <include name="changeOwner"/>
+                    <include name="reopenTaskForClosedClaimFromToolBar"/>
+                    <include name="insurerMergeSubmittedClaim"/>
+                    <include name="sendEstimationFromToolBar"/>
+                    <include name="acceptEstimateFromToolBar"/>
+                    <include name="rejectEstimateFromToolBar"/>
+                </methods>
+            </class>
+            <class name="cases.ID.WorkflowIDTest">
+                <methods>
+                    <include name="insurerSendClaimToRepairer"/>
+                    <include name="repairerSubmitCreatedTaskToInsurer"/>
+                    <include name="insurerAssignSubmittedTaskToSurveyor"/>
+                    <include name="surveyorReassessAndSendInspectingTaskToInsurer"/>
+                    <include name="insurerAssignInspectedTaskToSurveyor"/>
+                    <include name="surveyorSendInspectingTaskToInsurer"/>
+                    <include name="insurerSendEstimateInspectedTaskToRepairer"/>
+                    <include name="repairerRejectTaskToInsurer"/>
+                    <include name="insurerSendEstimateSubmittedTaskToRepairer"/>
+                    <include name="repairerAcceptTask"/>
+                    <include name="repairerSendRepairingTaskToInsurer"/>
+                </methods>
+            </class>
+            <class name="cases.ID.CompareIDTest">
+                <methods>
+                    <include name="compareDifferentCalculation"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

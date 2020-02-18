@@ -1,0 +1,195 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="qapter" verbose="1" parallel="tests" thread-count="1">
+    <test name="KR-PC" parallel="classes" thread-count="1">
+        <parameter name="env" value="*"/>
+        <parameter name="device" value="PC"/>
+        <parameter name="browser" value="*"/>
+        <parameter name="type" value="*"/>
+        <parameter name="country" value="KR"/>
+        <parameter name="createdAfter" value="1577836800"/>
+        <parameter name="createdBefore" value="1580515199"/>
+        <classes>
+            <class name="utils.testrail.TestRailJob">
+                <methods>
+                    <include name="printTestCountForASpecificPeriod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="KR-ANDROID" parallel="classes" thread-count="1">
+        <parameter name="env" value="*"/>
+        <parameter name="device" value="ANDROID"/>
+        <parameter name="browser" value="*"/>
+        <parameter name="type" value="*"/>
+        <parameter name="country" value="KR"/>
+        <parameter name="createdAfter" value="1577836800"/>
+        <parameter name="createdBefore" value="1580515199"/>
+        <classes>
+            <class name="utils.testrail.TestRailJob">
+                <methods>
+                    <include name="printTestCountForASpecificPeriod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="KR-IPAD" parallel="classes" thread-count="1">
+        <parameter name="env" value="*"/>
+        <parameter name="device" value="IPAD"/>
+        <parameter name="browser" value="*"/>
+        <parameter name="type" value="*"/>
+        <parameter name="country" value="KR"/>
+        <parameter name="createdAfter" value="1577836800"/>
+        <parameter name="createdBefore" value="1580515199"/>
+        <classes>
+            <class name="utils.testrail.TestRailJob">
+                <methods>
+                    <include name="printTestCountForASpecificPeriod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="JP-PC" parallel="classes" thread-count="1">
+        <parameter name="env" value="*"/>
+        <parameter name="device" value="PC"/>
+        <parameter name="browser" value="*"/>
+        <parameter name="type" value="*"/>
+        <parameter name="country" value="JP"/>
+        <parameter name="createdAfter" value="1577836800"/>
+        <parameter name="createdBefore" value="1580515199"/>
+        <classes>
+            <class name="utils.testrail.TestRailJob">
+                <methods>
+                    <include name="printTestCountForASpecificPeriod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="JP-ANDROID" parallel="classes" thread-count="1">
+        <parameter name="env" value="*"/>
+        <parameter name="device" value="ANDROID"/>
+        <parameter name="browser" value="*"/>
+        <parameter name="type" value="*"/>
+        <parameter name="country" value="JP"/>
+        <parameter name="createdAfter" value="1577836800"/>
+        <parameter name="createdBefore" value="1580515199"/>
+        <classes>
+            <class name="utils.testrail.TestRailJob">
+                <methods>
+                    <include name="printTestCountForASpecificPeriod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="JP-IPAD" parallel="classes" thread-count="1">
+        <parameter name="env" value="*"/>
+        <parameter name="device" value="IPAD"/>
+        <parameter name="browser" value="*"/>
+        <parameter name="type" value="*"/>
+        <parameter name="country" value="JP"/>
+        <parameter name="createdAfter" value="1577836800"/>
+        <parameter name="createdBefore" value="1580515199"/>
+        <classes>
+            <class name="utils.testrail.TestRailJob">
+                <methods>
+                    <include name="printTestCountForASpecificPeriod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="SG-PC" parallel="classes" thread-count="1">
+        <parameter name="env" value="*"/>
+        <parameter name="device" value="PC"/>
+        <parameter name="browser" value="*"/>
+        <parameter name="type" value="*"/>
+        <parameter name="country" value="SG"/>
+        <parameter name="createdAfter" value="1577836800"/>
+        <parameter name="createdBefore" value="1580515199"/>
+        <classes>
+            <class name="utils.testrail.TestRailJob">
+                <methods>
+                    <include name="printTestCountForASpecificPeriod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="SG-ANDROID" parallel="classes" thread-count="1">
+        <parameter name="env" value="*"/>
+        <parameter name="device" value="ANDROID"/>
+        <parameter name="browser" value="*"/>
+        <parameter name="type" value="*"/>
+        <parameter name="country" value="SG"/>
+        <parameter name="createdAfter" value="1577836800"/>
+        <parameter name="createdBefore" value="1580515199"/>
+        <classes>
+            <class name="utils.testrail.TestRailJob">
+                <methods>
+                    <include name="printTestCountForASpecificPeriod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="SG-IPAD" parallel="classes" thread-count="1">
+        <parameter name="env" value="*"/>
+        <parameter name="device" value="IPAD"/>
+        <parameter name="browser" value="*"/>
+        <parameter name="type" value="*"/>
+        <parameter name="country" value="SG"/>
+        <parameter name="createdAfter" value="1577836800"/>
+        <parameter name="createdBefore" value="1580515199"/>
+        <classes>
+            <class name="utils.testrail.TestRailJob">
+                <methods>
+                    <include name="printTestCountForASpecificPeriod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="ID-PC" parallel="classes" thread-count="1">
+        <parameter name="env" value="*"/>
+        <parameter name="device" value="PC"/>
+        <parameter name="browser" value="*"/>
+        <parameter name="type" value="*"/>
+        <parameter name="country" value="ID"/>
+        <parameter name="createdAfter" value="1577836800"/>
+        <parameter name="createdBefore" value="1580515199"/>
+        <classes>
+            <class name="utils.testrail.TestRailJob">
+                <methods>
+                    <include name="printTestCountForASpecificPeriod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="ID-ANDROID" parallel="classes" thread-count="1">
+        <parameter name="env" value="*"/>
+        <parameter name="device" value="ANDROID"/>
+        <parameter name="browser" value="*"/>
+        <parameter name="type" value="*"/>
+        <parameter name="country" value="ID"/>
+        <parameter name="createdAfter" value="1577836800"/>
+        <parameter name="createdBefore" value="1580515199"/>
+        <classes>
+            <class name="utils.testrail.TestRailJob">
+                <methods>
+                    <include name="printTestCountForASpecificPeriod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="ID-IPAD" parallel="classes" thread-count="1">
+        <parameter name="env" value="*"/>
+        <parameter name="device" value="IPAD"/>
+        <parameter name="browser" value="*"/>
+        <parameter name="type" value="*"/>
+        <parameter name="country" value="ID"/>
+        <parameter name="createdAfter" value="1577836800"/>
+        <parameter name="createdBefore" value="1580515199"/>
+        <classes>
+            <class name="utils.testrail.TestRailJob">
+                <methods>
+                    <include name="printTestCountForASpecificPeriod"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

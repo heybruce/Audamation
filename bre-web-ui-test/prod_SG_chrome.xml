@@ -1,0 +1,132 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SG" verbose="1" parallel="tests" thread-count="1">
+    <listeners>
+        <listener class-name="utils.listeners.AnnotationTransformer"/>
+        <listener class-name="utils.listeners.ExtentTestListener"/>
+        <listener class-name="utils.listeners.TestrailListener"/>
+        <listener class-name="utils.listeners.SlackListener" />
+        <listener class-name="utils.listeners.VideoRecordingDockerListener"/>
+    </listeners>
+    <test name="SG_RAT" parallel="classes" thread-count="5">
+        <parameter name="device" value="pc"/>
+        <parameter name="os" value="windows"/>
+        <parameter name="env" value="PROD"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="locale" value="en-us"/>
+        <parameter name="type" value="RAT"/>
+        <parameter name="country" value="SG"/>
+        <parameter name="dataFile" value="data.prod.SG.properties"/>
+        <parameter name="jiraIssueList" value="jira.issue.SG.properties"/>
+        <parameter name="vehicleElement" value="vehicleElement.SG.properties"/>
+        <classes>
+            <class name="cases.SG.WorkListOpenBoxSGTest">
+                <methods>
+                    <include name="createNewCaseFromHeader"/>
+                    <include name="changeOwnerInOpenBox"/>
+                    <include name="closeTheTaskInOpenBox"/>
+                    <include name="loginAndLogout"/>
+                    <include name="sendCaseWithLatestCalculationAllAttachments"/>
+                    <include name="sendCaseWithSelectedCalculationsSelectedAttachments"/>
+                </methods>
+            </class>
+            <class name="cases.SG.GeneralDetailsSGTest">
+                <methods>
+                    <include name="searchVehicleByVin"/>
+                    <include name="searchVehicleBySearchTree"/>
+                </methods>
+            </class>
+            <class name="cases.SG.AttachmentSGTest">
+                <methods>
+                    <include name="uploadJPGFile" />
+                    <include name="uploadJPEGFile" />
+                </methods>
+            </class>
+            <class name="cases.SG.LaborRatesSGTest">
+                <methods>
+                    <include name="selectExistingContracts"/>
+                    <include name="modifyLabourRateDetails"/>
+                    <include name="modifyPaintRateDetails"/>
+                    <include name="addOneOrMoreIDBCAtOneTime"/>
+                    <include name="deleteOneOrMoreIDBCAtOneTime"/>
+                    <include name="applyIDBCValueWithFixedAmount"/>
+                    <include name="verifyMandatoryLaborRatesFields"/>
+                </methods>
+            </class>
+            <class name="cases.SG.DamageDetailsSG">
+                <methods>
+                    <include name="addDamageAreas" />
+                </methods>
+            </class>
+            <class name="cases.SG.DamageCapturingSGTest">
+                <methods>
+                    <include name="damageCapturingInQapter"/>
+                </methods>
+            </class>
+            <!--<class name="cases.SG.ModifySparePartsSGTest">-->
+                <!--<methods>-->
+                    <!--<include name="repairPartsFromQapterDisplayInModifyPart"/>-->
+                    <!--<include name="modifyThePriceLessThanOriginalPrice"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+            <class name="cases.SG.ReportsSGTest">
+                <methods>
+                    <include name="calculationOutput"/>
+                </methods>
+            </class>
+            <class name="cases.SG.CaseHistorySGTest">
+                <methods>
+                    <include name="caseHistory"/>
+                    <include name="addPublicComment"/>
+                    <include name="addPrivateComment"/>
+                </methods>
+            </class>
+            <class name="cases.SG.WorklistClosedBoxSGTest">
+                <methods>
+                    <include name="reopenTaskForClosedClaim"/>
+                </methods>
+            </class>
+
+            <class name="cases.SG.WorklistInboxSGTest">
+                <methods>
+                    <include name="insurerMergeSubmittedClaimFromWorkList"/>
+                </methods>
+            </class>
+            <class name="cases.SG.ToolBarTest">
+                <methods>
+                    <include name="printPdfTemplate1" />
+                    <include name="printMerimenExportTemplate" />
+                    <include name="printPdfTemplate3" />
+                    <include name="assignClaimWithLatestCalculationAllAttachmentsFromToolbar"/>
+                    <include name="assignClaimWithSelectedCalculationsAndAttachmentsFromToolbar"/>
+                    <include name="closeTheTask"/>
+                    <include name="changeOwner"/>
+                    <include name="insurerMergeSubmittedClaim"/>
+                    <include name="reopenTaskForClosedClaimFromToolBar"/>
+                    <include name="sendEstimationFromToolBar"/>
+                    <include name="acceptEstimateFromToolBar"/>
+                    <include name="rejectEstimateFromToolBar"/>
+                </methods>
+            </class>
+            <class name="cases.SG.WorkflowTest">
+                <methods>
+                    <include name="insurerSendClaimToRepairer"/>
+                    <include name="repairerSubmitCreatedTaskToInsurer"/>
+                    <include name="insurerAssignSubmittedTaskToSurveyor"/>
+                    <include name="surveyorReassessAndSendInspectingTaskToInsurer"/>
+                    <include name="insurerAssignInspectedTaskToSurveyor"/>
+                    <include name="surveyorSendInspectingTaskToInsurer"/>
+                    <include name="insurerSendEstimateInspectedTaskToRepairer"/>
+                    <include name="repairerRejectTaskToInsurer"/>
+                    <include name="insurerSendEstimateSubmittedTaskToRepairer"/>
+                    <include name="repairerAcceptTask"/>
+                    <include name="repairerSendRepairingTaskToInsurer"/>
+                </methods>
+            </class>
+            <class name="cases.SG.CompareSGTest">
+                <methods>
+                    <include name="compareDifferentCalculation"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,112 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="JP" verbose="1" parallel="tests" thread-count="1">
+    <listeners>
+        <listener class-name="utils.listeners.AnnotationTransformer"/>
+        <listener class-name="utils.listeners.ExtentTestListener"/>
+        <listener class-name="utils.listeners.TestrailListener"/>
+        <listener class-name="utils.listeners.SlackListener" />
+        <listener class-name="utils.listeners.VideoRecordingDockerListener"/>
+    </listeners>
+    <test name="JP_RAT" parallel="classes" thread-count="5">
+        <parameter name="device" value="pc"/>
+        <parameter name="os" value="windows"/>
+        <parameter name="env" value="PROD"/>
+        <parameter name="browser" value="firefox"/>
+        <parameter name="locale" value="ja-jp"/>
+        <parameter name="type" value="RAT"/>
+        <parameter name="country" value="JP"/>
+        <parameter name="dataFile" value="data.prod.JP.properties"/>
+        <parameter name="jiraIssueList" value="jira.issue.JP.properties"/>
+        <parameter name="vehicleElement" value="vehicleElement.JP.properties"/>
+        <classes>
+            <class name="cases.JP.WorkListOpenBoxJPTest">
+                <methods>
+                    <include name="loginAndLogout"/>
+                    <include name="createNewCaseFromHeader"/>
+                    <include name="changeOwnerInOpenBox"/>
+                    <include name="closeTheTaskInOpenBox"/>
+                    <include name="sendCaseWithLatestCalculationAllAttachments"/>
+                    <include name="sendCaseWithSelectedCalculationsSelectedAttachments"/>
+                </methods>
+            </class>
+            <class name="cases.JP.ClaimInfoJPTest">
+                <methods>
+                    <include name="searchVehicleBySearchTree"/>
+                    <include name="searchVehicleByVin"/>
+                </methods>
+            </class>
+            <class name="cases.JP.AttachmentJPTest">
+                <methods>
+                    <include name="uploadJPGFile" />
+                    <include name="uploadJPEGFile" />
+                </methods>
+            </class>
+            <class name="cases.JP.LabourRateJPTest">
+                <methods>
+                    <include name="selectExistingContracts"/>
+                    <include name="modifyLabourRateDetails"/>
+                    <include name="modifyPaintRateDetails"/>
+                    <include name="addOneOrMoreIDBCAtOneTime" />
+                    <include name="deleteOneOrMoreIDBCAtOneTime"/>
+                    <include name="applyIDBCValueWithFixedAmount" />
+                </methods>
+            </class>
+            <class name="cases.JP.DamageCaptureJPTest">
+                <methods>
+                    <include name="damageCapturingInQapter"/>
+                </methods>
+            </class>
+            <class name="cases.JP.ModifySparePartsJPTest">
+                <methods>
+                    <include name="manuallyAddParts"/>
+                    <include name="deleteAddedParts"/>
+                    <include name="repairPartsFromQapterDisplayInModifyPart"/>
+                    <include name="modifyThePriceLessThanOriginalPrice"/>
+                    <include name="addPartsByUploadingCSV"/>
+                    <include name="downloadPartsUploaderTemplate"/>
+                </methods>
+            </class>
+            <class name="cases.JP.CalculationsJPTest">
+                <methods>
+                    <include name="calculationOutput"/>
+                </methods>
+            </class>
+            <class name="cases.JP.CaseInfoJPTest">
+                <methods>
+                    <include name="caseInfo"/>
+                    <include name="addCommentFromToolbar"/>
+                    <include name="addPublicComment"/>
+                    <include name="addPrivateComment"/>
+                </methods>
+            </class>
+            <class name="cases.JP.ToolBarTest">
+                <methods>
+                    <include name="printPdfWithStoreReport"/>
+                    <include name="printPdfWithoutStoreReport"/>
+                    <include name="closeTheTask"/>
+                    <include name="sendCaseWithLatestCalculationAllAttachmentsFromToolbar"/>
+                    <include name="sendCaseWithSelectedCalculationsAndAttachmentsFromToolbar"/>
+                    <include name="changeOwner"/>
+                    <include name="mergeTaskForInboxClaim"/>
+                    <include name="reopenTaskForClosedClaimFromToolBar"/>
+                </methods>
+            </class>
+            <class name="cases.JP.WorkListCloseBoxJPTest">
+                <methods>
+                    <include name="reopenTaskForClosedClaim"/>
+                </methods>
+            </class>
+            <class name="cases.JP.WorkListInboxJPTest">
+                <methods>
+                    <include name="mergeREQReceivedCase"/>
+                </methods>
+            </class>
+            <class name="cases.JP.CompareJPTest">
+                <methods>
+                    <include name="compareDifferentCalculation"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
